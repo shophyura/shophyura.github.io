@@ -79,3 +79,45 @@ document.getElementById('btnTiga').addEventListener('click', function() {
 //   document.execCommand("copy");
 //   alertEmpat.classList.toggle("d-none");
 // });
+
+function showForm() {
+    var div = document.getElementById('hide');
+    var show = document.getElementById('show');
+    var close = document.getElementById('close');
+
+    if (div.style.display != 'none') {
+        hideForm();
+    } else {
+        div.style.display = 'block';
+        show.style.display = 'none';
+        close.style.display = 'block';
+    }
+}
+
+function hideForm() {
+    var div = document.getElementById('hide');
+    var show = document.getElementById('show');
+    var close = document.getElementById('close');
+
+    div.style.display = 'none';
+
+    show.style.display = 'block';
+    close.style.display = 'none';
+}
+
+function x() {
+    return;
+}
+
+function DoSmilie(addSmilie, messageDef) {
+    var addSmilie, messageDef, revisedMessage;
+    var currentMessage = document.chat.pst.value;
+
+    if (currentMessage == messageDef) {
+        currentMessage = '';
+    }
+    revisedMessage = currentMessage + addSmilie;
+    document.chat.pst.value = revisedMessage;
+    document.chat.pst.focus();
+    return;
+}
