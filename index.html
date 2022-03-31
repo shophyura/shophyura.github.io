@@ -95,10 +95,13 @@
                 <a href="#slide-2" style="font-size: 25px"><i class="bi bi-heart-fill text-light"></i></a>
             </div>
             <div class="col-2">
-                <a href="#slide-3" style="font-size: 25px"><i class="bi bi-calendar2-event-fill text-light"></i></a>
+                <a href="#slide-3" style="font-size: 25px"><i class="bi bi-list-stars text-light"></i></a>
             </div>
             <div class="col-2">
-                <a href="#slide-4" style="font-size: 25px"><i class="bi bi-hourglass-split text-light"></i></a>
+                <a href="#slide-4" style="font-size: 25px"><i class="bi bi-credit-card-2-back-fill text-light"></i></a>
+            </div>
+            <div class="col-2">
+                <a href="#slide-5" style="font-size: 25px"><i class="bi bi-person-lines-fill text-light"></i></a>
             </div>
         </div>
     </div>
@@ -216,7 +219,7 @@
 </section>
 <!-- End SLide3 -->
 
-<!-- Slide 9 -->
+<!-- Slide 4 -->
 <section id="slide-4" class="bg-satu" style="margin-top: -1px">
     <div class="container py-5 col-lg-6 col-11">
         <div class="text-light text-center">
@@ -298,9 +301,57 @@
     ></path>
   </svg>
 <!-- End Wave -->
-<!-- End Slide 9 -->
+<!-- End Slide 4 -->
 
-<footer class="footer text-center">
+
+<!-- Slide 5 -->
+<section id="slide-5" class="bg-tiga" style="margin-top: -1px">
+    <div class="container py-5 col-lg-6 col-11">
+        <div class="text-light text-center">
+            <h1 class="pb-3 fc-satu fs-satu" data-aos="fade-down">Contact Form</h1>
+        </div>
+        <div class="container col-12 pb-4 bg-light bg-gradient shadow-1" data-aos="fade-up" data-aos-delay="100">
+            <div class="row bg-satu">
+                <div class="col text-center">
+                    <i class="bi bi-person-lines-fill fc-tiga" style="font-size: 2rem"></i>
+                </div>
+            </div>
+            <div class="row bg-satu">
+                <div class="col fc-tiga">
+                    <div>
+                        <div class="alert alert-dismissible fade show bg-tiga fc-satu d-none my-alert" role="alert">
+                            <strong>Terima Kasih !</strong> Pesan anda telah diterima.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <form name="shophyura-contact-form">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="name" aria-describedby="name" name="nama">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" aria-describedby="email" name="email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="pesan" class="form-label">Pesan</label>
+                                <textarea class="form-control" id="pesan" rows="3" name="pesan"></textarea>
+                            </div>
+                            <button type="submit" class="btn mb-3 fc-satu btn-kirim" style="background-color: #fff;">Kirim</button>
+                            <button class="btn mb-3 fc-satu btn-loading d-none" style="background-color: #fff;" type="button" disabled>
+                                <span class="spinner-border spinner-border-sm fc-satu" role="status" aria-hidden="true"></span>
+                                Loading...
+                              </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f84fac" fill-opacity="1" d="M0,192L48,165.3C96,139,192,85,288,96C384,107,480,181,576,213.3C672,245,768,235,864,208C960,181,1056,139,1152,112C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+</section>
+<!-- End SLide 5 -->
+
+<footer class="footer text-center mt-5">
     <div class="container pt-2 fs-satu" data-aos="fade-up">
         <p class="pt-2 fc-satu">
             Made by
@@ -462,6 +513,37 @@
             delay: 2,
         });
     });
+</script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxbH4vsX0et6f2O217j247sYAV4SGB1_0E-IirVpaGkz3zBEOusRu3Ti4OhgHFUW48R/exec'
+    const form = document.forms['shophyura-contact-form'];
+    const btnKirim = document.querySelector('.btn-kirim');
+    const btnLoading = document.querySelector('.btn-loading');
+    const myAlertz = document.querySelector('.my-alert');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        //Ketika tombol submit di klik
+        //Tampilkan tombol loading, hilangkan tombol kirim
+        btnLoading.classList.toggle('d-none');
+        btnKirim.classList.toggle('d-none');
+        fetch(scriptURL, {
+                method: 'POST',
+                body: new FormData(form)
+            })
+            .then(response => {
+                //Tampilkan tombol kirim, hilangkan tombol loading
+                btnLoading.classList.toggle('d-none');
+                btnKirim.classList.toggle('d-none');
+                //Tampilkan alert
+                myAlertz.classList.toggle('d-none');
+                //Reset Form
+                form.reset();
+                console.log('Success!', response)
+            })
+            .catch(error => console.error('Error!', error.message))
+    })
 </script>
 </body>
 

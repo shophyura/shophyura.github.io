@@ -20,6 +20,10 @@ body .fc-dua {
     color: #8f628d;
 }
 
+body .fc-tiga {
+    color: #ffffff;
+}
+
 body .fs-satu {
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
@@ -72,7 +76,7 @@ body .bg-dua {
 }
 
 body .bg-tiga {
-    background-color: #ffeacd;
+    background-color: #ffffff;
 }
 
 body .bg-pattern {
