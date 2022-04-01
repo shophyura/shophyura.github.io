@@ -1,35 +1,35 @@
 // Countdown
-const tangglAcara = new Date('Mar 06, 2022 10:00:00').getTime();
+// const tangglAcara = new Date('Mar 06, 2022 10:00:00').getTime();
 
-const sisaWaktu = setInterval(function() {
-    const sekarang = new Date().getTime();
-    const sisa = tangglAcara - sekarang;
+// const sisaWaktu = setInterval(function() {
+//     const sekarang = new Date().getTime();
+//     const sisa = tangglAcara - sekarang;
 
-    const sisaHari = Math.floor(sisa / (1000 * 60 * 60 * 24));
-    const sisaJam = Math.floor((sisa % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const sisaMenit = Math.floor((sisa % (1000 * 60 * 60)) / (1000 * 60));
-    const sisaDetik = Math.floor((sisa % (1000 * 60)) / 1000);
+//     const sisaHari = Math.floor(sisa / (1000 * 60 * 60 * 24));
+//     const sisaJam = Math.floor((sisa % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//     const sisaMenit = Math.floor((sisa % (1000 * 60 * 60)) / (1000 * 60));
+//     const sisaDetik = Math.floor((sisa % (1000 * 60)) / 1000);
 
-    const hari = document.getElementById('hari');
-    hari.innerHTML = sisaHari;
+//     const hari = document.getElementById('hari');
+//     hari.innerHTML = sisaHari;
 
-    const jam = document.getElementById('jam');
-    jam.innerHTML = sisaJam;
+//     const jam = document.getElementById('jam');
+//     jam.innerHTML = sisaJam;
 
-    const menit = document.getElementById('menit');
-    menit.innerHTML = sisaMenit;
+//     const menit = document.getElementById('menit');
+//     menit.innerHTML = sisaMenit;
 
-    const detik = document.getElementById('detik');
-    detik.innerHTML = sisaDetik;
+//     const detik = document.getElementById('detik');
+//     detik.innerHTML = sisaDetik;
 
-    if (sisa < 0) {
-        clearInterval(sisaWaktu);
-        hari.innerHTML = '0';
-        jam.innerHTML = '0';
-        menit.innerHTML = '0';
-        detik.innerHTML = '0';
-    }
-}, 1000);
+//     if (sisa < 0) {
+//         clearInterval(sisaWaktu);
+//         hari.innerHTML = '0';
+//         jam.innerHTML = '0';
+//         menit.innerHTML = '0';
+//         detik.innerHTML = '0';
+//     }
+// }, 1000);
 
 // Copy Text
 const alertSatu = document.querySelector('#alertSatu');
